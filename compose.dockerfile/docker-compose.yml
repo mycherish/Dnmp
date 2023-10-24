@@ -1,0 +1,87 @@
+version: "3"
+
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    restart: always
+    tty: true
+    container_name: nginx
+    volumes:
+      - ~/dockerServer/www:/usr/share/nginx/html
+      - ~/dockerServer/log/nginx:/var/log/nginx
+      - ~/dockerServer/etc/nginx/conf.d:/etc/nginx/conf.d
+      - ~/dockerServer/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - lnmp-networks
+  
+  mysql8.0.34:
+    build: ./mysql8.0.34
+    container_name: mysql8.0.34
+    tty: true
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ~/dockerServer/data/mysql8.0.34:/var/lib/mysql
+      - ~/dockerServer/data/mysql-files8.0.34:/var/lib/mysql-files
+      - ~/dockerServer/etc/mysql8.0.34/my.cnf:/etc/my.cnf
+      - ~/dockerServer/log/mysql8.0.34:/var/log
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    networks:
+      - lnmp-networks
+      
+  redis:
+    build: ./redis
+    container_name: redis
+    tty: true
+    restart: always
+    ports:
+      - "6380:6379"
+    volumes:
+      - ~/dockerServer/etc/redis/redis.conf:/etc/redis.conf
+      - ~/dockerServer/data/redis:/data
+      - ~/dockerServer/log/redis:/var/log
+    networks:
+      - lnmp-networks
+
+  php7.3:
+    build: ./php7.3
+    tty: true
+    restart: always
+    container_name: php7.3
+    ports:
+      - "9000:9000"
+    volumes:
+      - ~/dockerServer/www:/var/www/html
+      - ~/dockerServer/log/php7.3:/var/log/php
+      - ~/dockerServer/etc/php7.3/php.ini:/usr/local/etc/php/php.ini
+      - ~/dockerServer/etc/php7.3/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ~/dockerServer/etc/php7.3/conf.d:/usr/local/etc/php/conf.d
+    depends_on:
+      - nginx
+    networks:
+      - lnmp-networks
+      
+  php8.1:
+    build: ./php8.1
+    tty: true
+    restart: always
+    container_name: php8.1
+    ports:
+      - "9081:9000"
+    volumes:
+      - ~/dockerServer/www:/var/www/html
+      - ~/dockerServer/log/php8.1:/var/log/php
+      - ~/dockerServer/etc/php8.1/php.ini:/usr/local/etc/php/php.ini
+      - ~/dockerServer/etc/php8.1/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ~/dockerServer/etc/php8.1/conf.d:/usr/local/etc/php/conf.d
+    depends_on:
+      - nginx
+    networks:
+      - lnmp-networks
+
+networks:
+  lnmp-networks:
