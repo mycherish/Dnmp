@@ -14,7 +14,9 @@
 [![GitHub release](https://img.shields.io/badge/MySQL-v8.0.34-blue)](https://img.shields.io/badge/MySQL-v8.0.34-blue)
 [![GitHub release](https://img.shields.io/badge/Redis-v7.0.5-blue)](https://img.shields.io/badge/Redis-v7.0.5-blue)
 [![GitHub release](https://img.shields.io/badge/Nginx-v1.25.1-blue)](https://img.shields.io/badge/Nginx-v1.25.1-blue)
-[![GitHub release](https://img.shields.io/badge/PHP-v7.3_/_v8.1-blue)](https://img.shields.io/badge/PHP-v7.3_/_v8.1-blue)
+<img src="https://img.shields.io/badge/PHP-v7.3_/_v8.1-#4F5D95.svg"/>
+[![GitHub release](https://img.shields.io/badge/PHP-v7.3_/_v8.1-Navyblue)](https://img.shields.io/badge/PHP-v7.3_/_v8.1-Navyblue)
+
 
 ## License
 
