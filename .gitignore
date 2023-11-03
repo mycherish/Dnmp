@@ -7,3 +7,5 @@
 /www/*
 !/www/phpinfo/
 !/www/hello.html
+
+.vscode
