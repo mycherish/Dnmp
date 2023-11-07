@@ -82,6 +82,21 @@ services:
       - nginx
     networks:
       - lnmp-networks
+  es7.9.1:
+    build: ./es7.9.1
+    tty: true
+    restart: always
+    container_name: elasticsearch7.9.1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ~/dockerServer/data/es7.9.1:/usr/share/elasticsearch/data
+      - ~/dockerServer/etc/es7.9.1/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ~/dockerServer/plugins/es7.9.1/ik:/usr/share/elasticsearch/plugins
+    networks:
+      - lnmp-networks
+      
 
 networks:
   lnmp-networks:
