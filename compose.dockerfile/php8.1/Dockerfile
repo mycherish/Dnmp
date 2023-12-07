@@ -5,7 +5,7 @@ LABEL xuweidong="determined_xw@126.com"
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/install-php-extensions && \
-    install-php-extensions gd xdebug redis mcrypt memcached swoole
+    install-php-extensions gd xdebug redis mcrypt memcached swoole zip
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
     install-php-extensions imagick
 RUN docker-php-ext-configure opcache --enable-opcache && docker-php-ext-install opcache
