@@ -13,6 +13,9 @@ RUN docker-php-ext-configure opcache --enable-opcache && docker-php-ext-install 
 RUN docker-php-ext-install -j$(nproc) bcmath calendar exif gettext sockets dba pcntl shmop sysvmsg sysvsem sysvshm
 RUN docker-php-ext-install -j$(nproc) mysqli pdo pdo_mysql
 
+WORKDIR /tmp
+RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
+RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
-#容器启动时执行指令
+
 CMD ["php-fpm"]
