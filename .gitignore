@@ -1,5 +1,6 @@
 .history
 .vscode
+.idea
 
 /etc/nginx/conf.d/*
 !/etc/nginx/conf.d/default.conf
