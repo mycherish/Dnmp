@@ -1,7 +1,7 @@
 FROM elasticsearch:7.9.1
  
 # container creator
-LABEL maintainer="liu_xiao_guo@yahoo.com"
+# LABEL maintainer="liu_xiao_guo@yahoo.com"
  
 # copy the configuration file into the container
 # COPY elasticsearch.yml /usr/share/elasticsearch/config
