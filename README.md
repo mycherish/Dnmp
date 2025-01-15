@@ -1,6 +1,8 @@
 # Dnmp
 
-> 自用 Docker 开发环境搭建，使用 M1 的 macOS14.0，其他系统未验证。  
+> 2025年1月15日，添加 `windows 11` 分支，用于 Windows 上开发。
+>
+> Docker 开发环境搭建，使用 M1 的 macOS14.0，其他系统未验证。  
 > 
 > `Docker` `Nginx` `MySQL` `PHP` `Redis` `Elasticsearch` `IK`
 > 
