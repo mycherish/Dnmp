@@ -22,7 +22,7 @@ services:
     tty: true
     restart: always
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
       - ${APP_DIR}\data\mysql5.7:/var/lib/mysql
       - ${APP_DIR}\data\mysql-files5.7:/var/lib/mysql-files

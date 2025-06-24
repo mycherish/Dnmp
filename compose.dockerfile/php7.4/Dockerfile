@@ -18,11 +18,16 @@ RUN apt-get update && apt-get install -y \
     libjpeg62-turbo-dev \
     libpng-dev \
     libzip-dev \
+    libssl-dev \
     zip \
     unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install zip pdo_mysql
+
+# 安装 MongoDB 扩展
+RUN pecl install mongodb-1.13.0 \
+    && docker-php-ext-enable mongodb
 
 # 清理缓存以减小镜像大小
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
